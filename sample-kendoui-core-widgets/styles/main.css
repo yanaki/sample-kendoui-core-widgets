@@ -7,14 +7,6 @@
     display: block;
     margin: 0px auto;
 }
-.logo-image {
-    background-image: url(../styles/images/logo.png);
-    background-repeat: no-repeat;
-    width: 319px;
-    height: 60px;
-    display: block;
-    margin: 0px auto;
-}
 
 /* LOGIN VIEW STYLES */
 .login-button {
@@ -126,14 +118,16 @@
     opacity: 0.5;
 }
 
+/* SPECIFICS */
+.km-android input[type=text]:not(.k-input),
+.km-android input[type=password]:not(.k-input) {
+    padding: 0.25em 1em;
+}
+
 /* RETINA DISPLAY STYLES */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .welcome-image {
         background-image: url(../styles/images/appbuilder2x.png);
-        background-size: 100%;
-    }
-    .logo-image {
-        background-image: url(../styles/images/logo2x.png);
         background-size: 100%;
     }
     .w-icon {
