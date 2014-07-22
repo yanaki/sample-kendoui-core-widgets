@@ -1,4 +1,4 @@
-sample-kendoui-core-widgets(former Kendo UI mobile app)
+sample-kendoui-core-widgets (former Kendo UI mobile app template)
 ====================
 
 A cross-platform mobile device application developed with Kendo UI Core.
