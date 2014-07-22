@@ -10,6 +10,7 @@
 
         address: "",
         isGoogleMapsInitialized: false,
+        hideSearch: false,
 
         onNavigateHome: function () {
             var that = this,
@@ -84,12 +85,14 @@
                 map: map,
                 position: position
             });
-        }
+        },       
+        
     });
 
     app.locationService = {
         initLocation: function () {
-            var mapOptions;
+            var mapOptions,
+            	streetView;
 
             if (typeof google === "undefined") {
                 return;
@@ -112,6 +115,18 @@
             map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
             geocoder = new google.maps.Geocoder();
             app.locationService.viewModel.onNavigateHome.apply(app.locationService.viewModel, []);
+            
+            streetView = map.getStreetView();
+
+			google.maps.event.addListener(streetView, 'visible_changed', function() {
+
+			    if (streetView.getVisible()) {                  
+					app.locationService.viewModel.set("hideSearch", true);
+			    } else {
+					app.locationService.viewModel.set("hideSearch", false);
+  			  }
+ 
+			});
         },
 
         show: function () {
